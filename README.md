@@ -52,7 +52,25 @@ Exit codes:
 
 ## 中文说明
 
-这是一个完全本地运行的 Shopify 商品 CSV 导入前检查工具。它不会连接店铺，也不需要 Admin API Token。
+### 这个工具有什么作用？
+
+**Shopify Catalog Doctor 用于在商品 CSV 导入 Shopify 之前发现数据问题。**
+
+错误的 CSV 可能导致 SKU 混乱、商品变体重复或被重建、促销价格失效、图片无法导入。这个工具会提前指出具体问题所在的行和字段，适合批量创建商品或更新已有商品前使用。
+
+它主要检查：
+
+- SKU 重复、缺失、前后空格和大小写冲突
+- 颜色、尺寸等变体选项缺失、重复或组合不完整
+- Price、Compare-at price、库存和重量格式错误
+- Handle、Status、布尔值及 Shopify 必需字段错误
+- 图片 URL、图片 Alt 文本和 SEO 字段问题
+- CSV 编码、分隔符、引号和列数错误
+- Shopify 当前字段名和常见旧版导出字段名
+
+工具只读取 CSV 并输出检查报告：**不会修改原始 CSV，不会连接或修改 Shopify 店铺，也不需要 Admin API Token。**
+
+### 使用方法
 
 在 Windows PowerShell 中运行：
 
